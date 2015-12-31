@@ -3,7 +3,7 @@
 	Complexities:
 		Time:
 			Construction : O (N)
-			RMQ : O (N)
+			RMQ : O (log(N)
 		Space:
 			O (N)
 */
@@ -44,8 +44,23 @@ SegmentTree.prototype.construct = function (array, tree, lo, hi, pos) {
 	tree [pos] = Math.min (tree [pos*2 + 1], tree [pos*2 + 2]);
 };
 
-SegmentTree.prototype.rmq = function () {
-	//rmq logic
+SegmentTree.prototype.rmq = function (lo, hi) {
+	return (this.rangeMinQuery (this.tree, lo, hi, 0, this.array.length - 1, 0));
 };
+
+SegmentTree.prototype.rangeMinQuery = function (tree, qlo, qhi, lo, hi, pos) {
+	if (qlo <= lo && qhi >= hi) {
+		return (tree [pos]);
+	}
+	if (lo > qhi || hi < qlo) {
+		return (Infinity);
+	}
+
+	var mid = Math.floor ( (lo + hi) / 2 );
+	return (Math.min (
+		this.rangeMinQuery (tree, qlo, qhi, lo, mid, pos*2 + 1),
+		this.rangeMinQuery (tree, qlo, qhi, mid + 1, hi, pos*2 + 2)
+	));
+}
 
 module.exports = SegmentTree;

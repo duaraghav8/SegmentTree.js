@@ -1,0 +1,22 @@
+{
+  "name": "SegmentTree",
+  "version": "0.0.1",
+  "description": "Segment Tree Data Structure with Construction and Range Minimum Query functionality",
+  "main": "SegmentTree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duaraghav8/SegmentTree.js.git"
+  },
+  "keywords": [
+    "DataStructures",
+    "SegmentTree",
+    "CommonJS",
+    "RangeMinimumQuery",
+    "JavaScript"
+  ],
+  "author": "Raghav Dua",
+  "license": "MIT"
+}
